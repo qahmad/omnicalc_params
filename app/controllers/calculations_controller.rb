@@ -27,8 +27,7 @@ class CalculationsController < ApplicationController
       
       @interest_rate_decimal = @interest_rate/120000.0
       @monthly_payment = (@interest_rate_decimal/(1-(1+@interest_rate_decimal)**(-1*@term*12)))*@principal
-      @monthly_payment = @monthly_payment.round(2)
-      
+
       render ("calculations/flexible_payment_template.html.erb")
     end
    
