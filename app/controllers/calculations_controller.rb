@@ -65,6 +65,22 @@ class CalculationsController < ApplicationController
       
       render ("calculations/square_root_results_template.html.erb")
     end
+
+    def payment_form
+      render ("calculations/payment_form_template.html.erb")
+    end
    
-   
+    def process_payment
+    
+      @term = params["term"].to_i
+      @principal = params["principal"].to_f      
+      @interest_rate = params["interest_rate"].to_f
+      
+      @interest_rate_decimal = @interest_rate/1200.0
+      @monthly_payment = (@interest_rate_decimal/(1-(1+@interest_rate_decimal)**(-1*@term*12)))*@principal
+      
+      render ("calculations/payment_results_template.html.erb")
+    end
+
+
 end
