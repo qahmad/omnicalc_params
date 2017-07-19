@@ -48,7 +48,7 @@ class CalculationsController < ApplicationController
    
     def process_square
     
-        @user_number = params["user_number"].to_i
+        @user_number = params["user_number"].to_f
         @squared_number = @user_number ** 2
       
       render ("calculations/square_results_template.html.erb")
