@@ -54,4 +54,17 @@ class CalculationsController < ApplicationController
       render ("calculations/square_results_template.html.erb")
     end
    
+    def square_root_form
+      render ("calculations/square_root_form_template.html.erb")
+    end
+   
+    def process_square_root
+    
+        @user_number = params["user_number"].to_f
+        @square_root_number = @user_number ** (1.0/2.0)
+      
+      render ("calculations/square_root_results_template.html.erb")
+    end
+   
+   
 end
